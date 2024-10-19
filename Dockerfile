@@ -11,6 +11,7 @@ RUN echo 'deb http://archive.debian.org/debian/ jessie main non-free contrib' >/
     echo 'deb http://archive.debian.org/debian-security/ jessie/updates main non-free contrib' >>/etc/apt/sources.list && \
     echo 'deb-src http://archive.debian.org/debian-security/ jessie/updates main non-free contrib' >>/etc/apt/sources.list && \
     apt-get update && \
+    apt-get install debian-archive-keyring && \
     apt-get -y install debconf-utils && \
     echo "mysql-server mysql-server/root_password password $MYSQL_PWD" | debconf-set-selections && \
     echo "mysql-server mysql-server/root_password_again password $MYSQL_PWD" | debconf-set-selections && \
