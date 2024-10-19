@@ -6,10 +6,10 @@ COPY php-build /php-build/
 WORKDIR /php-build/
 
 # Get our environment set up
-RUN echo 'deb http://archive.debian.org/debian/ jessie main non-free contrib' >/etc/apt/sources.list && \
-    echo 'deb-src http://archive.debian.org/debian/ jessie main non-free contrib' >>/etc/apt/sources.list && \
-    echo 'deb http://archive.debian.org/debian-security/ jessie/updates main non-free contrib' >>/etc/apt/sources.list && \
-    echo 'deb-src http://archive.debian.org/debian-security/ jessie/updates main non-free contrib' >>/etc/apt/sources.list && \
+RUN echo 'deb [trusted=yes] http://archive.debian.org/debian/ jessie main non-free contrib' >/etc/apt/sources.list && \
+    echo 'deb-src [trusted=yes] http://archive.debian.org/debian/ jessie main non-free contrib' >>/etc/apt/sources.list && \
+    echo 'deb [trusted=yes] http://archive.debian.org/debian-security/ jessie/updates main non-free contrib' >>/etc/apt/sources.list && \
+    echo 'deb-src [trusted=yes] http://archive.debian.org/debian-security/ jessie/updates main non-free contrib' >>/etc/apt/sources.list && \
     apt-get update && \
     apt-get install debian-archive-keyring && \
     apt-get -y install debconf-utils && \
